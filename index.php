@@ -25,20 +25,22 @@
 					}
 					
 	?>
+	<div>
 	<table>
 		<tr>
 			<td width="610">
-				<table width="600"><tr>
+				<div width="600">
+				    
 					<h1>For data scientists</h1>
 					<table>
 					<?php
-					$sql = "SELECT * from pc1_cloud where codigo_servicio='C001' or codigo_servicio='C002' or codigo_servicio='C003'";
+					$sql = "SELECT * from servicios where codigo_servicio='C001' or codigo_servicio='C002' or codigo_servicio='C003'";
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
 						// output data of each row
 						while($row = $result->fetch_assoc()) {?>
 						<tr >
-							<td width="140"><img width=130 align="center" src='images/iconos/<?php echo $row['imagen_servicio']?>'></td>
+							<td width="140"><img width=130 align="center" src="<?php echo $row['imagen_servicio']?>"></td>
 							<td width="420"><b><?php echo $row['nombre_servicio']?></b><br><?php echo $row['descripcion_servicio']?></td>
 						</tr>
 					<?php }
@@ -46,21 +48,21 @@
 					echo "0 results";
 					}
 					?> 
-					</tr></table>
-				</table>
+					</table>
+				</div>
 			</td>
 			<td width="610">
-				<div width="600"><tr>
+				<div width="600">
 					<h1>For data scientists</h1>
 					<table>
 					<?php
-					$sql = "SELECT * from pc1_cloud where codigo_servicio='C004' or codigo_servicio='C005' or codigo_servicio='C006'";
+					$sql = "SELECT * from servicios  where codigo_servicio='C004' or codigo_servicio='C005' or codigo_servicio='C006'";
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
 						// output data of each row
 						while($row = $result->fetch_assoc()) {?>
 						<tr >
-							<td width="140"><img width=130 align="center" src='images/iconos/<?php echo $row['imagen_servicio']?>'></td>
+							<td width="140"><img width=130 align="center" src="<?php echo $row['imagen_servicio']?>"></td>
 							<td width="420"><b><?php echo $row['nombre_servicio']?></b><br><?php echo $row['descripcion_servicio']?></td>
 						</tr>
 					<?php }
@@ -69,13 +71,14 @@
 					}
 					$conn->close();
 					?> 
-					</tr></table>
+					</table>
 				</div>
 			</td>
 		</tr>
 	</table>
+	</div>
 	<div align=center>
-		<img align="center" src='images/fin.PNG'>
+		<img align="center" src='images/bot.PNG'>
 	</div>
 </body>
 </html>
